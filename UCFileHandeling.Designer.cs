@@ -30,13 +30,21 @@
         {
             splitContainerToShowFiles = new SplitContainer();
             pnlFilesShow = new Panel();
+            flp_fileItemsShowingPanel = new FlowLayoutPanel();
             panel1 = new Panel();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             label1 = new Label();
+            splitContainerTTHandleing = new SplitContainer();
+            lblTest = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainerToShowFiles).BeginInit();
             splitContainerToShowFiles.Panel1.SuspendLayout();
+            splitContainerToShowFiles.Panel2.SuspendLayout();
             splitContainerToShowFiles.SuspendLayout();
+            pnlFilesShow.SuspendLayout();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerTTHandleing).BeginInit();
+            splitContainerTTHandleing.Panel1.SuspendLayout();
+            splitContainerTTHandleing.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainerToShowFiles
@@ -57,17 +65,29 @@
             // splitContainerToShowFiles.Panel2
             // 
             splitContainerToShowFiles.Panel2.BackColor = Color.White;
+            splitContainerToShowFiles.Panel2.Controls.Add(splitContainerTTHandleing);
             splitContainerToShowFiles.Size = new Size(781, 505);
             splitContainerToShowFiles.SplitterDistance = 202;
             splitContainerToShowFiles.TabIndex = 0;
             // 
             // pnlFilesShow
             // 
+            pnlFilesShow.Controls.Add(flp_fileItemsShowingPanel);
             pnlFilesShow.Dock = DockStyle.Fill;
             pnlFilesShow.Location = new Point(0, 57);
             pnlFilesShow.Name = "pnlFilesShow";
+            pnlFilesShow.Padding = new Padding(3);
             pnlFilesShow.Size = new Size(198, 444);
             pnlFilesShow.TabIndex = 1;
+            // 
+            // flp_fileItemsShowingPanel
+            // 
+            flp_fileItemsShowingPanel.AutoScroll = true;
+            flp_fileItemsShowingPanel.Dock = DockStyle.Fill;
+            flp_fileItemsShowingPanel.Location = new Point(3, 3);
+            flp_fileItemsShowingPanel.Name = "flp_fileItemsShowingPanel";
+            flp_fileItemsShowingPanel.Size = new Size(192, 438);
+            flp_fileItemsShowingPanel.TabIndex = 0;
             // 
             // panel1
             // 
@@ -114,6 +134,35 @@
             label1.TabIndex = 0;
             label1.Text = "Files";
             // 
+            // splitContainerTTHandleing
+            // 
+            splitContainerTTHandleing.BackColor = Color.FromArgb(194, 194, 239);
+            splitContainerTTHandleing.BorderStyle = BorderStyle.Fixed3D;
+            splitContainerTTHandleing.Dock = DockStyle.Fill;
+            splitContainerTTHandleing.Location = new Point(0, 0);
+            splitContainerTTHandleing.Name = "splitContainerTTHandleing";
+            // 
+            // splitContainerTTHandleing.Panel1
+            // 
+            splitContainerTTHandleing.Panel1.BackColor = Color.Gainsboro;
+            splitContainerTTHandleing.Panel1.Controls.Add(lblTest);
+            // 
+            // splitContainerTTHandleing.Panel2
+            // 
+            splitContainerTTHandleing.Panel2.BackColor = Color.White;
+            splitContainerTTHandleing.Size = new Size(575, 505);
+            splitContainerTTHandleing.SplitterDistance = 211;
+            splitContainerTTHandleing.TabIndex = 0;
+            // 
+            // lblTest
+            // 
+            lblTest.AutoSize = true;
+            lblTest.Font = new Font("Showcard Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lblTest.Location = new Point(55, 133);
+            lblTest.Name = "lblTest";
+            lblTest.Size = new Size(0, 27);
+            lblTest.TabIndex = 0;
+            // 
             // UCFileHandeling
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -121,11 +170,18 @@
             Controls.Add(splitContainerToShowFiles);
             Name = "UCFileHandeling";
             Size = new Size(781, 505);
+            Load += UCFileHandeling_Load;
             splitContainerToShowFiles.Panel1.ResumeLayout(false);
+            splitContainerToShowFiles.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainerToShowFiles).EndInit();
             splitContainerToShowFiles.ResumeLayout(false);
+            pnlFilesShow.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            splitContainerTTHandleing.Panel1.ResumeLayout(false);
+            splitContainerTTHandleing.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerTTHandleing).EndInit();
+            splitContainerTTHandleing.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -136,5 +192,8 @@
         private FontAwesome.Sharp.IconButton iconButton1;
         private Label label1;
         private Panel pnlFilesShow;
+        private FlowLayoutPanel flp_fileItemsShowingPanel;
+        private SplitContainer splitContainerTTHandleing;
+        private Label lblTest;
     }
 }
