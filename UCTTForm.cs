@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace project_TelegraphicTransfer
 {
-    public partial class UCTelegraphicsListShow : UserControl
+    public partial class UCTTForm : UserControl
     {
-        public UCTelegraphicsListShow()
+        public UCTTForm()
         {
             InitializeComponent();
         }
