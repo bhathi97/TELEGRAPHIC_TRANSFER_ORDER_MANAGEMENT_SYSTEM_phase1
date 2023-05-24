@@ -184,10 +184,10 @@
             // lblFormNameShow
             // 
             lblFormNameShow.AutoSize = true;
-            lblFormNameShow.BackColor = Color.White;
-            lblFormNameShow.BorderStyle = BorderStyle.Fixed3D;
+            lblFormNameShow.BackColor = Color.FromArgb(194, 194, 239);
+            lblFormNameShow.BorderStyle = BorderStyle.FixedSingle;
             lblFormNameShow.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblFormNameShow.Location = new Point(19, 5);
+            lblFormNameShow.Location = new Point(9, 4);
             lblFormNameShow.Name = "lblFormNameShow";
             lblFormNameShow.Size = new Size(2, 17);
             lblFormNameShow.TabIndex = 0;

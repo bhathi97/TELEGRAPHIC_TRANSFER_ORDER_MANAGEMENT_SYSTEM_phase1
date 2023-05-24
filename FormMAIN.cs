@@ -12,6 +12,21 @@ namespace project_TelegraphicTransfer
 {
     public partial class FormMAIN : Form
     {
+
+        #region properties
+        private string _lblTest;
+        public string LblTest
+        {
+            get { return _lblTest; }
+            set
+            {
+                _lblTest = value;
+                lblFormNameShow.Text = value;
+            }
+        }
+        #endregion
+
+
         public FormMAIN()
         {
             InitializeComponent();

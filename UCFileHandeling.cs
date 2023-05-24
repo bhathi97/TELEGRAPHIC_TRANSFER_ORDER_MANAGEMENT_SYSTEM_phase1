@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace project_TelegraphicTransfer
 {
@@ -23,30 +18,48 @@ namespace project_TelegraphicTransfer
         public string LblTest
         {
             get { return _lblTest; }
-            set { _lblTest = value; }
+            set
+            {
+                _lblTest = value;
+                lblTest.Text = value;
+            }
         }
-        #endregion
-        //lblTest.Text = _lblTest;
 
+        private UserControl _userControlTTShow;
+        public UserControl UserControlTTShow
+        {
+            get { return _userControlTTShow; }
+            set
+            {
+                _userControlTTShow = value;
+                splitContainerTTHandleing.Panel1.Controls.Add(value);
+            }
+        }
+
+        private int _fileId;
+        public int FileId
+        {
+            get { return _fileId; }
+            set { _fileId = value; }
+        }
+
+        #endregion
         public UCFileHandeling()
         {
             InitializeComponent();
+            //lblTest.Text = _lblTest;
 
         }
 
 
-
-
         //++++++++++++++++++++++++++++++++ have to implement
-
-
         public void loadItems()
         {
             try
             {
                 connsql.Open();
                 // Create a SqlCommand to retrieve the rows
-                SqlCommand cmdItemLoad = new SqlCommand("SELECT * FROM tbl_TEST", connsql);
+                SqlCommand cmdItemLoad = new SqlCommand("SELECT * FROM tbl_TEST_parent", connsql);
 
                 // Execute the query and retrieve the rows
                 SqlDataReader reader = cmdItemLoad.ExecuteReader();
@@ -54,7 +67,8 @@ namespace project_TelegraphicTransfer
                 while (reader.Read())
                 {
                     UCItems1 uCItem = new UCItems1();
-                    uCItem.FileName = reader["ID"].ToString();
+                    uCItem.FileName = reader["Name"].ToString();
+                    uCItem.FileId = int.Parse(reader["ID"].ToString());
 
                     // Add UCItems1 control to the panel
                     flp_fileItemsShowingPanel.Controls.Add(uCItem);
@@ -76,6 +90,8 @@ namespace project_TelegraphicTransfer
         private void UCFileHandeling_Load(object sender, EventArgs e)
         {
             loadItems();
+
+
 
         }
     }
